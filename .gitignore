@@ -1,0 +1,9 @@
+# blacklist all files and folders
+/**
+
+# whitelist
+!.gitignore
+!.vimrc
+!.vim
+!.zshrc
+!.tmux.conf
