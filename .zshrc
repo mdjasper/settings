@@ -125,9 +125,16 @@ export PATH="$HOME/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# kub path stuff
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # start tmux by default
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
+    if [ $VSCODE_INTEGRATED_TERMINAL eq "true" ]; then
+        tmux new -s default
+    else
+        tmux attach -t default || tmux new -s default
+    fi
 fi
 
 alias cursor="tput civis && tput cnorm"
