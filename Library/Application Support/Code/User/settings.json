@@ -1,0 +1,21 @@
+{
+    "window.zoomLevel": 0,
+    "editor.rulers": [80, 120],
+    "workbench.colorCustomizations": { "editorRuler.foreground": "#000" },
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.trimAutoWhitespace": true,
+    "extensions.ignoreRecommendations": false,
+    "editor.renderIndentGuides": true,
+    "ActiveFileInStatusBar.fullpath": false,
+    "ActiveFileInStatusBar.color": "#222",
+    "editor.renderWhitespace": "all",
+    "go.useLanguageServer": true,
+    "terraform.telemetry.enabled": false,
+    "terraform.indexing.enabled": false,
+    "terraform.languageServer.enabled": true,
+    "terminal.integrated.env.osx": {
+        "VSCODE_INTEGRATED_TERMINAL": "true"
+    }
+}
