@@ -142,6 +142,10 @@ alias grep="ggrep"
 
 alias notes="code ~/Documents/notes"
 
+function cdwhich {
+  cd "$(dirname "$(which $1)")"
+}
+
 function mkcd {
   if [ ! -n "$1" ]; then
     echo "Enter a directory name"
@@ -159,5 +163,3 @@ function depth {
     echo "in nested shell ($SHLVL)"
   fi
 }
-
-
