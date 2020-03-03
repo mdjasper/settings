@@ -22,6 +22,15 @@ YS_VCS_PROMPT_SUFFIX="%{$reset_color%} "
 YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}✗"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}✔︎"
 
+function git_prompt_info() {
+  local ref
+  if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
+    ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+    echo "$italic$ZSH_THEME_GIT_PROMPT_PREFIX$italic${ref#refs/heads/}$italic$(parse_git_dirty)$italic$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  fi
+}
+
 # Git info.
 local git_info='$(git_prompt_info)'
 local git_last_commit='$(git log --pretty=format:"%h \"%s\"" -1 2> /dev/null)'
@@ -55,8 +64,12 @@ if [ ! -z "$VAULTED_ENV" ]; then
 	vaulted_summary="%{$fg[cyan]%}[$VAULTED_ENV ${diff}] ★  "
 fi
 
-# Prompt format: \n # TIME USER at MACHINE in [DIRECTORY] on git:BRANCH STATE \n $ 
+italic=$(tput sitm)
+eitalic=$(tput ritm)
+
+# Prompt format: \n # TIME USER at MACHINE in [DIRECTORY] on git:BRANCH STATE \n $
 PROMPT="
+%{$bg[black]%}\
 ${vaulted_summary}\
 %{$fg[cyan]%}%n \
 %{$fg[white]%}at \
@@ -65,7 +78,9 @@ ${vaulted_summary}\
 %{$terminfo[bold]$fg[yellow]%}[${current_dir}]%{$reset_color%}\
 ${hg_info} \
 ${git_info} \
+"$italic"\
 ${git_last_commit}
+"$eitalic"\
 %{$fg[red]%}%* \
 %{$terminfo[bold]$fg[white]%}› %{$reset_color%}"
 
