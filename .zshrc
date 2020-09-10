@@ -1,4 +1,4 @@
-# If you come from bash you might have to change your $PATH.
+# iF you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -128,6 +128,14 @@ export PATH=$PATH:$GOPATH/bin
 # kub path stuff
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# use brew installed openssl
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+#export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+# use python from pyenv
+eval "$(pyenv init -)"
+
 # start tmux by default
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     if [ $VSCODE_INTEGRATED_TERMINAL eq "true" ]; then
@@ -142,8 +150,14 @@ alias grep="ggrep"
 
 alias notes="code ~/Documents/notes"
 
+alias textme="node ~/Projects/sandbox/email/email.js"
+
 function cdwhich {
   cd "$(dirname "$(which $1)")"
+}
+
+function catwhich {
+  cat < "$(which $1)"
 }
 
 function mkcd {
@@ -163,3 +177,7 @@ function depth {
     echo "in nested shell ($SHLVL)"
   fi
 }
+export PATH="/usr/local/opt/bison/bin:$PATH"
+
+# set up rapture vars
+eval "$( command rapture shell-init )"

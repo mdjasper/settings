@@ -1,11 +1,25 @@
 {
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 2,
     "editor.rulers": [80, 120],
     "workbench.colorCustomizations": { "editorRuler.foreground": "#000" },
     "files.trimTrailingWhitespace": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.trimAutoWhitespace": true,
+    "editor.fontFamily": "Dank Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 17,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "comment",
+                "scope": ["comment"],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    },
     "extensions.ignoreRecommendations": false,
     "editor.renderIndentGuides": true,
     "ActiveFileInStatusBar.fullpath": false,
@@ -17,5 +31,18 @@
     "terraform.languageServer.enabled": true,
     "terminal.integrated.env.osx": {
         "VSCODE_INTEGRATED_TERMINAL": "true"
+    },
+    "terraform.languageServer": {
+        "external": true,
+        "args": [
+            "serve"
+        ]
+    },
+    "workbench.settings.editor": "json",
+    "javascript.validate.enable": false,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
     }
 }
