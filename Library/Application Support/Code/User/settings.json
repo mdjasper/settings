@@ -1,14 +1,14 @@
 {
     "window.zoomLevel": 2,
     "editor.rulers": [80, 120],
-    "workbench.colorCustomizations": { "editorRuler.foreground": "#000" },
+    "workbench.colorCustomizations": { "editorRuler.foreground": "#151515" },
     "files.trimTrailingWhitespace": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.trimAutoWhitespace": true,
     "editor.fontFamily": "Dank Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
-    "editor.lineHeight": 17,
+    "editor.lineHeight": 15,
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
@@ -20,11 +20,11 @@
             }
         ]
     },
+    "editor.renderWhitespace": "all",
     "extensions.ignoreRecommendations": false,
     "editor.renderIndentGuides": true,
     "ActiveFileInStatusBar.fullpath": false,
     "ActiveFileInStatusBar.color": "#222",
-    "editor.renderWhitespace": "all",
     "go.useLanguageServer": true,
     "terraform.telemetry.enabled": false,
     "terraform.indexing.enabled": false,
@@ -46,3 +46,5 @@
         "**/.ammonite": true
     }
 }
+
+
